@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JP GigSpace | Funnel, Website & Operations Support</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            950: '#032338',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Inter Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .active-tab {
+            border-bottom: 2px solid #1d4ed8;
+            color: #1d4ed8;
+        }
+        .service-card {
+            transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+        }
+        .service-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 16px 35px rgba(15, 23, 42, 0.08);
+        }
+        .tool-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.6rem 0.9rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 9999px;
+            background: #fff;
+            color: #334155;
+            font-size: 0.875rem;
+            font-weight: 600;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
+
+    <!-- NAVIGATION BAR -->
+    <header class="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-slate-200">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <!-- Logo / Brand Signature -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="#home" onclick="navigateTo('home')" class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                        <span class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center font-extrabold text-lg">J</span>
+                        <span>JOYCE</span>
+                    </a>
+                </div>
+                
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex space-x-8 text-sm font-medium">
+                    <button onclick="navigateTo('home')" id="nav-home" class="nav-btn py-5 text-slate-600 hover:text-brand-600 active-tab transition-colors">Home</button>
+                    <button onclick="navigateTo('services')" id="nav-services" class="nav-btn py-5 text-slate-600 hover:text-brand-600 transition-colors">Services & Pricing</button>
+                    <button onclick="navigateTo('about')" id="nav-about" class="nav-btn py-5 text-slate-600 hover:text-brand-600 transition-colors">About & Tools</button>
+                    <button onclick="navigateTo('casestudies')" id="nav-casestudies" class="nav-btn py-5 text-slate-600 hover:text-brand-600 transition-colors">
+                <div class="mt-12 pt-10 border-t border-slate-200">
+                    <div class="max-w-3xl mb-7">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Platforms & Tools</p>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-2">Tools you can bring into the project.</h3>
+                        <p class="text-sm text-slate-500 mt-3 leading-relaxed">
+                            Already using one of these? Great. Bring your existing setup and get implementation, updates, migration support, or recurring admin help where the platform fits the project scope.
+                        </p>
+                    </div>
+                    <div class="flex flex-wrap gap-3">
+                        <span class="tool-pill">MailerLite</span>
+                        <span class="tool-pill">Superthread</span>
+                        <span class="tool-pill">WordPress</span>
+                        <span class="tool-pill">Elementor</span>
+                        <span class="tool-pill">Bitly</span>
+                        <span class="tool-pill">Linktree</span>
+                        <span class="tool-pill">Brevo</span>
+                        <span class="tool-pill">AWeber</span>
+                        <span class="tool-pill">Tally</span>
+                        <span class="tool-pill">TrainerCentral</span>
+                        <span class="tool-pill">GoHighLevel</span>
+                        <span class="tool-pill">Spotify for Creators</span>
+                        <span class="tool-pill">Libsyn</span>
+                        <span class="tool-pill">Riverside</span>
+                        <span class="tool-pill">Podbean</span>
+                        <span class="tool-pill">Google Workspace</span>
+                    </div>
+                    <p class="mt-5 text-xs text-slate-400">
+                        Platform experience varies by task. New or highly specialized tools are reviewed during project scoping before work begins.
+                    </p>
+                </div>
+Case Studies</button>
+                    <button onclick="navigateTo('contact')" id="nav-contact" class="nav-btn py-5 text-slate-600 hover:text-brand-600 transition-colors">Contact</button>
+                </nav>
+
+                <!-- Action Button -->
+                <div class="hidden md:flex items-center">
+                    <button onclick="navigateTo('contact')" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-full text-white bg-brand-600 hover:bg-brand-700 shadow-sm transition-all duration-200 hover:scale-105">
+                        Let's Talk
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="flex md:hidden">
+                    <button id="mobile-menu-btn" type="button" class="text-slate-500 hover:text-slate-700 focus:outline-none" aria-label="Toggle menu">
+                        <i class="fa-solid fa-bars text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Dropdown Navigation Menu -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-b border-slate-200 px-4 pt-2 pb-4 space-y-1">
+            <button onclick="navigateTo('home'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Home</button>
+            <button onclick="navigateTo('services'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Services & Pricing</button>
+            <button onclick="navigateTo('about'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">About & Tools</button>
+            <button onclick="navigateTo('casestudies'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Case Studies</button>
+            <button onclick="navigateTo('contact'); toggleMobileMenu()" class="block w-full text-left px-3 py-2 rounded-md text-base font-medium text-slate-700 hover:bg-brand-50 hover:text-brand-600">Contact</button>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT AREA -->
+    <main class="flex-grow">
+
+        <!-- SECTION: HOME -->
+        <section id="section-home" class="page-section py-16 md:py-24">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+                    
+                    <!-- Left Hero Content -->
+                    <div class="md:col-span-7 space-y-6 text-center md:text-left">
+                        <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-100 text-brand-700 text-xs font-semibold uppercase tracking-wider">
+                            <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+                            Available for Implementation & Support Projects
+                        </div>
+                        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-slate-900 tracking-tight leading-[1.05]">
+                            Have the <span class="text-transparent bg-clip-text bg-gradient-to-r from-brand-600 to-sky-400">plan?</span> Let's get it built.
+                        </h1>
+                        <p class="text-lg text-slate-600 leading-relaxed max-w-xl mx-auto md:mx-0">
+                            You already have the offer, direction, and creative assets. What you may need is someone who can take those pieces and turn them into a functional funnel, website, email system, course platform, podcast workflow, or organized day-to-day operation.
+                        </p>
+                        <div class="flex flex-col sm:flex-row items-center justify-center md:justify-start gap-4">
+                            <button onclick="navigateTo('services')" class="w-full sm:w-auto px-8 py-3 bg-brand-600 text-white font-medium rounded-full shadow-lg shadow-brand-200 hover:bg-brand-700 hover:shadow-xl transition-all duration-200 text-center">
+                                See How I Can Help
+                            </button>
+                            <button onclick="navigateTo('casestudies')" class="w-full sm:w-auto px-8 py-3 bg-white text-slate-700 font-medium rounded-full border border-slate-200 hover:bg-slate-50 transition-all duration-200 text-center">
+                                See My Work
+                            </button>
+                        </div>
+                        <div class="flex flex-wrap justify-center md:justify-start gap-x-5 gap-y-2 pt-2 text-xs font-medium text-slate-500">
+                            <span><i class="fa-solid fa-check text-emerald-500 mr-1"></i>Bring your existing assets</span>
+                            <span><i class="fa-solid fa-check text-emerald-500 mr-1"></i>Get the implementation handled</span>
+                            <span><i class="fa-solid fa-check text-emerald-500 mr-1"></i>Know what was tested</span>
+                        </div>
+                    </div>
+
+                    <!-- Right Hero Graphics -->
+                    <div class="md:col-span-5 flex justify-center">
+                        <div class="relative w-72 h-72 sm:w-80 sm:h-80 md:w-96 md:h-96">
+                            <!-- Soft Decorative Background Patterns (Our Baby Blue focus!) -->
+                            <div class="absolute inset-0 bg-gradient-to-tr from-brand-100 to-sky-200 rounded-full filter blur-3xl opacity-70 animate-pulse"></div>
+                            
+                            <!-- Isometric Mock Interface Element -->
+                            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full flex flex-col justify-center items-center">
+                                <div class="bg-white p-6 rounded-2xl shadow-xl border border-slate-100 w-11/12 max-w-[340px] transform hover:scale-105 transition-transform duration-300">
+                                    <div class="flex items-center justify-between mb-4 pb-3 border-b border-slate-100">
+                                        <div class="flex items-center gap-2">
+                                            <span class="w-3 h-3 rounded-full bg-red-400"></span>
+                                            <span class="w-3 h-3 rounded-full bg-yellow-400"></span>
+                                            <span class="w-3 h-3 rounded-full bg-green-400"></span>
+                                        </div>
+                                        <span class="text-xs font-mono text-brand-600 bg-brand-50 px-2 py-0.5 rounded">LAUNCH_SYSTEM_v1</span>
+                                    </div>
+                                    <div class="space-y-3">
+                                        <div class="h-4 bg-slate-100 rounded w-3/4"></div>
+                                        <div class="h-3 bg-slate-100 rounded w-1/2"></div>
+                                        <div class="flex items-center gap-3 mt-4">
+                                            <div class="w-8 h-8 rounded-lg bg-brand-100 text-brand-600 flex items-center justify-center text-xs"><i class="fa-solid fa-gears"></i></div>
+                                            <div class="flex-1">
+                                                <div class="h-2 bg-slate-100 rounded w-1/3 mb-1"></div>
+                                                <div class="h-1.5 bg-slate-50 rounded w-2/3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-center gap-3">
+                                            <div class="w-8 h-8 rounded-lg bg-emerald-100 text-emerald-600 flex items-center justify-center text-xs"><i class="fa-solid fa-code-merge"></i></div>
+                                            <div class="flex-1">
+                                                <div class="h-2 bg-slate-100 rounded w-1/2 mb-1"></div>
+                                                <div class="h-1.5 bg-slate-50 rounded w-1/3"></div>
+                                            </div>
+                                        </div>
+                                        <div class="flex justify-between items-center pt-2 mt-4 text-xs text-slate-400 border-t border-slate-100">
+                                            <span>Launch Readiness</span>
+                                            <span class="text-emerald-500 font-semibold flex items-center gap-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500"></span> QA Verified</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION: SERVICES & PRICING -->
+        <section id="section-services" class="page-section py-16 md:py-20 bg-white hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <span class="inline-flex items-center px-3 py-1 rounded-full bg-brand-50 text-brand-700 text-xs font-semibold uppercase tracking-wider">Services & Pricing</span>
+                    <h2 class="mt-4 text-3xl font-extrabold text-slate-900 sm:text-4xl">You have the pieces. You need them put together.</h2>
+                    <p class="mt-4 text-lg text-slate-500">
+                        Whether you need a funnel built, a website updated, a course platform maintained, a podcast cleaned up, or recurring admin support, you can choose the kind of help your business needs.
+                    </p>
+                </div>
+
+                <!-- Core Services -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6">
+                        <div class="w-11 h-11 rounded-xl bg-brand-100 text-brand-600 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-diagram-project"></i>
+                        </div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Operations</p>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Project & Email Support</h3>
+                        <p class="text-sm text-slate-500 mt-3 leading-relaxed">Need someone to keep the moving pieces organized? Get support with project coordination, inbox work, follow-ups, launch tasks, and implementation.</p>
+                        <div class="mt-5 text-2xl font-extrabold text-brand-600">$25<span class="text-sm font-medium text-slate-400">/hr</span></div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6">
+                        <div class="w-11 h-11 rounded-xl bg-indigo-100 text-indigo-600 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-globe"></i>
+                        </div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Web</p>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Website Updates</h3>
+                        <p class="text-sm text-slate-500 mt-3 leading-relaxed">Need a website change without handing over the whole project? Get help with page edits, content updates, forms, links, blog uploads, integrations, and general maintenance.</p>
+                        <div class="mt-5 text-2xl font-extrabold text-brand-600">$25–30<span class="text-sm font-medium text-slate-400">/hr</span></div>
+                    </div>
+
+                    <div class="bg-slate-50 rounded-2xl border border-slate-200 p-6">
+                        <div class="w-11 h-11 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-5">
+                            <i class="fa-solid fa-comments"></i>
+                        </div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Strategy</p>
+                        <h3 class="text-xl font-bold text-slate-900 mt-1">Strategy & Business Calls</h3>
+                        <p class="text-sm text-slate-500 mt-3 leading-relaxed">Need a second pair of eyes before you build or launch? Use a focused session to talk through implementation, funnels, websites, launches, or business systems. Discovery and strategy calls are primarily scheduled on Saturdays.</p>
+                        <div class="mt-5 text-2xl font-extrabold text-brand-600">$30<span class="text-sm font-medium text-slate-400">/hr</span></div>
+                    </div>
+                </div>
+
+                <!-- Funnel Packages -->
+                <div class="flex items-end justify-between gap-4 mb-6">
+                    <div>
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Funnel Implementation</p>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-1">Build the customer journey without handing me your ad account.</h3>
+                    </div>
+                    <span class="hidden sm:block text-xs text-slate-400 text-right max-w-xs">Starting prices · Additional fees may apply depending on scope, platform, integrations, revisions, and timeline.</span>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5">
+                    <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">A</span>
+                            <span class="text-xs text-slate-400">Lead Gen</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mt-3">Lead Generation Funnel</h4>
+                        <p class="text-2xl font-extrabold text-slate-900 mt-4">Starting at $299</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Landing + thank-you page</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Up to 5 nurture emails</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>List/newsletter integration</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Automation & basic QA</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border-2 border-brand-500 p-6 shadow-md hover:-translate-y-1 transition-transform relative">
+                        <span class="absolute -top-3 left-5 px-3 py-1 rounded-full bg-brand-600 text-white text-[11px] font-bold uppercase tracking-wider">Popular</span>
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">B</span>
+                            <span class="text-xs text-slate-400">Sales</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mt-3">Sales Funnel</h4>
+                        <p class="text-2xl font-extrabold text-slate-900 mt-4">Starting at $699</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Landing + sales page</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Checkout + confirmation</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Email automation & nurture</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Integrations & end-to-end QA</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">C</span>
+                            <span class="text-xs text-slate-400">Upsell</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mt-3">Sales Funnel + Upsell</h4>
+                        <p class="text-2xl font-extrabold text-slate-900 mt-4">Starting at $999</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Complete sales funnel</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Upsell page & flow</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Email automation & nurture</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Integrations & QA</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:-translate-y-1 transition-transform">
+                        <div class="flex items-center justify-between">
+                            <span class="text-xs font-semibold uppercase tracking-wider text-brand-600">D</span>
+                            <span class="text-xs text-slate-400">Launch</span>
+                        </div>
+                        <h4 class="text-lg font-bold text-slate-900 mt-3">Time-Sensitive Launch Funnel</h4>
+                        <p class="text-2xl font-extrabold text-slate-900 mt-4">Starting at $1,499</p>
+                        <ul class="mt-5 space-y-2 text-sm text-slate-500">
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Pre / launch / post-launch setup</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Pages, checkout & confirmation</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Email implementation</li>
+                            <li><i class="fa-solid fa-check text-emerald-500 mr-2"></i>Launch coordination & QA</li>
+                        </ul>
+                    </div>
+                </div>
+
+
+                <!-- Additional GigSpace Services -->
+                <div class="mt-14">
+                    <div class="mb-6">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Additional Support</p>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-1">More ways to plug into your workflow.</h3>
+                        <p class="text-sm text-slate-500 mt-2">These are especially useful as recurring or task-based support. Starting rates help set expectations; final pricing depends on scope.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-5">
+                        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                            <div class="w-11 h-11 rounded-xl bg-violet-100 text-violet-600 flex items-center justify-center mb-5">
+                                <i class="fa-solid fa-graduation-cap"></i>
+                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Learning Platforms</p>
+                            <h4 class="text-lg font-bold text-slate-900 mt-1">LMS Administration</h4>
+                            <p class="text-sm text-slate-500 mt-3 leading-relaxed">Keep your courses organized and updated with lesson uploads, course-page updates, learner-facing changes, basic admin tasks, and platform maintenance.</p>
+                            <p class="text-2xl font-extrabold text-brand-600 mt-5">Starting at $20<span class="text-sm font-medium text-slate-400">/hr</span></p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                            <div class="w-11 h-11 rounded-xl bg-rose-100 text-rose-600 flex items-center justify-center mb-5">
+                                <i class="fa-solid fa-microphone-lines"></i>
+                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Podcasting</p>
+                            <h4 class="text-lg font-bold text-slate-900 mt-1">Podcast Audio Editing</h4>
+                            <p class="text-sm text-slate-500 mt-3 leading-relaxed">Audio-only post-production for interview and conversational podcasts: cleanup, cuts, leveling, intro/outro assembly, and final export.</p>
+                            <p class="text-2xl font-extrabold text-brand-600 mt-5">Starting at $75<span class="text-sm font-medium text-slate-400">/episode</span></p>
+                            <p class="text-xs text-slate-400 mt-2">Final rate depends on episode length, source quality, editing complexity, and turnaround.</p>
+                        </div>
+
+                        <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                            <div class="w-11 h-11 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-5">
+                                <i class="fa-solid fa-comments"></i>
+                            </div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Professional Communication</p>
+                            <h4 class="text-lg font-bold text-slate-900 mt-1">Business English Conversation</h4>
+                            <p class="text-sm text-slate-500 mt-3 leading-relaxed">Practical, conversational English support for working adults who want to communicate more comfortably in meetings, workplace conversations, and everyday professional situations.</p>
+                            <p class="text-2xl font-extrabold text-brand-600 mt-5">Starting at $15<span class="text-sm font-medium text-slate-400">/hr</span></p>
+                            <p class="text-xs text-slate-400 mt-2">Conversation/coaching format — not a formal ESL curriculum or certification course.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Website Projects -->
+                <div class="mt-14 grid grid-cols-1 lg:grid-cols-2 gap-6">
+                    <div class="bg-slate-950 text-white rounded-3xl p-7">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center"><i class="fa-solid fa-wand-magic-sparkles"></i></span>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-slate-400">Website Project</p>
+                                <h3 class="text-xl font-bold">Website Revamp</h3>
+                            </div>
+                        </div>
+                        <p class="text-3xl font-extrabold mt-6">Starting at $1,200</p>
+                        <p class="text-sm text-slate-400 mt-3 leading-relaxed">For businesses refreshing or restructuring an existing website. Scope may include page restructuring, implementation, mobile optimization, forms, integrations, forms, integrations, and QA.</p>
+                    </div>
+
+                    <div class="bg-slate-950 text-white rounded-3xl p-7">
+                        <div class="flex items-center gap-3">
+                            <span class="w-10 h-10 rounded-xl bg-white/10 flex items-center justify-center"><i class="fa-solid fa-arrow-right-arrow-left"></i></span>
+                            <div>
+                                <p class="text-xs uppercase tracking-wider text-slate-400">Website Project</p>
+                                <h3 class="text-xl font-bold">Website Migration</h3>
+                            </div>
+                        </div>
+                        <p class="text-3xl font-extrabold mt-6">Starting at $1,500</p>
+                        <p class="text-sm text-slate-400 mt-3 leading-relaxed">For organized platform-to-platform moves involving pages, content, forms, integrations, automations, redirects, and platform-specific requirements. Website revamp + migration projects are quoted separately based on scope.</p>
+                    </div>
+                </div>
+
+
+                <!-- Email Migration -->
+                <div class="mt-6 rounded-3xl border border-slate-200 bg-white p-7">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-start">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Email Systems</p>
+                            <h3 class="text-2xl font-extrabold text-slate-900 mt-2">Email Migration</h3>
+                            <p class="text-sm text-slate-500 mt-3 leading-relaxed">Moving email accounts, lists, templates, automations, or related email assets from one platform to another, depending on the setup.</p>
+                        </div>
+                        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-5">
+                            <div class="rounded-2xl bg-slate-50 p-5">
+                                <p class="font-semibold text-slate-800">What I can implement</p>
+                                <ul class="mt-3 space-y-2 text-sm text-slate-500">
+                                    <li>✓ Email/list migration</li>
+                                    <li>✓ Rebuilding email automations</li>
+                                    <li>✓ Forms, tags & basic integrations</li>
+                                    <li>✓ Testing sends and workflows</li>
+                                </ul>
+                            </div>
+                            <div class="rounded-2xl bg-amber-50 p-5">
+                                <p class="font-semibold text-slate-800">Domain configuration</p>
+                                <p class="mt-3 text-sm text-slate-500 leading-relaxed">Domain and DNS configuration are not included in email migration services.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-xs text-slate-400 mt-6 pt-4 border-t border-slate-100">
+                        Email migration is quoted by scope. Domain registration, hosting, mailbox fees, and third-party platform fees are not included.
+                    </p>
+                </div>
+
+                <!-- Retainer / Scope -->
+                <div class="mt-10 grid grid-cols-1 lg:grid-cols-5 gap-6">
+                    <div class="lg:col-span-2 rounded-3xl border border-brand-100 bg-brand-50 p-7">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Ongoing Support</p>
+                        <h3 class="text-2xl font-extrabold text-slate-900 mt-2">Starting at $300 / month</h3>
+                        <p class="text-3xl font-extrabold text-brand-600 mt-3">15 hours</p>
+                        <p class="text-sm text-slate-500 mt-3">A flexible recurring-support block for implementation, email/project work, LMS administration, podcast editing, and operations tasks. Recurring podcast work can be included when the monthly scope fits; higher-volume or specialized editing may be quoted separately.</p>
+                        <p class="text-xs text-slate-400 mt-4">Additional hours or specialized project work can be quoted separately when needed.</p>
+                    </div>
+
+                    <div class="lg:col-span-3 rounded-3xl border border-slate-200 bg-white p-7">
+                        <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Working Together</p>
+                        <h3 class="text-xl font-bold text-slate-900 mt-2">You stay in control of your business.</h3>
+                        <div class="grid sm:grid-cols-2 gap-4 mt-5 text-sm">
+                            <div>
+                                <p class="font-semibold text-slate-800 mb-2">What you'll provide</p>
+                                <ul class="space-y-1.5 text-slate-500">
+                                    <li>✓ Appropriate admin/platform access</li>
+                                    <li>✓ Copy, graphics, and brand assets when applicable</li>
+                                    <li>✓ Project direction and requirements</li>
+                                    <li>✓ Feedback and approvals</li>
+                                    <li>✓ A point of contact for questions</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <p class="font-semibold text-slate-800 mb-2">What stays out of scope</p>
+                                <ul class="space-y-1.5 text-slate-500">
+                                    <li>✓ Copywriting & graphic design</li>
+                                    <li>✓ Offer creation</li>
+                                    <li>✓ Paid ads / media buying</li>
+                                    <li>✓ SEO services</li>
+                                    <li>✓ DNS / domain configuration</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-xs text-slate-400 mt-5 pt-4 border-t border-slate-100">
+                            Access is limited to the platforms and areas needed for the agreed work. I do not need direct access to unrelated business accounts or information.
+                        </p>
+                    </div>
+                </div>
+
+
+                <!-- Working Hours -->
+                <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-7">
+                    <div class="grid grid-cols-1 lg:grid-cols-3 gap-7 items-center">
+                        <div>
+                            <p class="text-xs font-semibold uppercase tracking-wider text-slate-400">Availability</p>
+                            <h3 class="text-2xl font-extrabold text-slate-900 mt-2">Support when it matters.</h3>
+                            <p class="text-sm text-slate-500 mt-3 leading-relaxed">Projects can be asynchronous, but having a clear working window helps set expectations for communication, updates, and turnaround. The schedule also creates useful overlap for clients working outside Philippine business hours.</p>
+                        </div>
+                        <div class="lg:col-span-2 grid sm:grid-cols-2 gap-4">
+                            <div class="bg-white rounded-2xl border border-slate-200 p-5">
+                                <p class="font-semibold text-slate-800">Regular working window</p>
+                                <p class="text-xl font-extrabold text-brand-600 mt-2">Mon–Fri · 1–5 PM PHT</p>
+                                <p class="text-xs text-slate-400 mt-2">Philippine Time (UTC+8)</p>
+                            </div>
+                            <div class="bg-white rounded-2xl border border-slate-200 p-5">
+                                <p class="font-semibold text-slate-800">Saturday availability</p>
+                                <p class="text-xl font-extrabold text-brand-600 mt-2">Sat · 7 AM–5 PM PHT</p>
+                                <p class="text-xs text-slate-400 mt-2">Discovery & strategy calls are primarily scheduled here.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="mt-5 pt-5 border-t border-slate-200 text-sm text-slate-500">
+                        <i class="fa-solid fa-moon text-brand-600 mr-2"></i>
+                        <strong class="text-slate-700">Need live support?</strong> Live event or time-sensitive support can be discussed separately and may require a different schedule, depending on availability.
+                    </div>
+                </div>
+
+                <div class="mt-10 text-center">
+                    <button onclick="navigateTo('contact')" class="inline-flex items-center justify-center px-7 py-3 bg-brand-600 text-white font-semibold rounded-full shadow-lg shadow-brand-200 hover:bg-brand-700 transition-all">
+                        Let's Talk About Your Project <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+<!-- SECTION: ABOUT & SKILLS -->
+        <section id="section-about" class="page-section py-16 bg-white hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">About & Implementation Toolbox</h2>
+                    <p class="mt-4 text-lg text-slate-500">I turn client-provided strategy and creative assets into clean, functional digital systems through careful implementation, organization, and verification.</p>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+                    
+                    <!-- Profile Pitch & Approach -->
+                    <div class="lg:col-span-6 space-y-6">
+                        <h3 class="text-2xl font-bold text-slate-900">How I Approach Implementation</h3>
+                        <p class="text-slate-600 leading-relaxed">
+                            I specialize in practical implementation. I work with the tools and direction a business already has rather than forcing unnecessary systems into the workflow. My job is to make the moving pieces clearer, connected, and ready to use.
+                        </p>
+                        <p class="text-slate-600 leading-relaxed">
+                            My work is detail-oriented and implementation-focused: pages are built, automations are connected, workflows are tested, and handoffs are documented where needed. The goal is a system the client can confidently launch and maintain.
+                        </p>
+                        
+                        <div class="p-6 bg-slate-50 border border-slate-100 rounded-2xl flex items-start gap-4">
+                            <span class="p-3 bg-brand-100 text-brand-600 rounded-xl text-lg flex items-center justify-center"><i class="fa-solid fa-magnifying-glass-chart"></i></span>
+                            <div>
+                                <h4 class="font-semibold text-slate-900">Implementation & QA</h4>
+                                <p class="text-sm text-slate-500 mt-1">I don't just build and walk away. I test forms, links, automations, page flows, and integrations so the finished system is ready for the client to review and launch.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Skills & Apps Grid -->
+                    <div class="lg:col-span-6 space-y-8">
+                        <h3 class="text-2xl font-bold text-slate-900">My Systems Stack</h3>
+                        
+                        <div class="space-y-6">
+                            <!-- Category: Project & Knowledge Management -->
+                            <div>
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Project & Knowledge Management</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-book-open text-brand-500"></i> Notion</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-list-check text-brand-500"></i> Asana</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-brands fa-trello text-brand-500"></i> Trello</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-cube text-brand-500"></i> ClickUp</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-table text-brand-500"></i> Airtable</span>
+                                </div>
+                            </div>
+
+                            <!-- Category: Automation & CRM -->
+                            <div>
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Automation & CRM</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-bolt text-amber-500"></i> Zapier</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-envelope text-brand-500"></i> Kit (ConvertKit)</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-paper-plane text-brand-500"></i> Mailchimp</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-bullseye text-brand-500"></i> ActiveCampaign</span>
+                                </div>
+                            </div>
+
+                            <!-- Category: Infrastructure & Funnels -->
+                            <div>
+                                <h4 class="text-xs font-semibold uppercase tracking-wider text-slate-400 mb-3">Web & Funnel Infrastructure</h4>
+                                <div class="flex flex-wrap gap-2">
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-graduation-cap text-indigo-500"></i> Kajabi</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-brands fa-wix text-indigo-500"></i> Wix</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-brands fa-squarespace text-indigo-500"></i> Squarespace</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-window-restore text-indigo-500"></i> LeadPages</span>
+                                    <span class="px-3 py-1.5 rounded-lg bg-slate-100 text-slate-700 text-sm font-medium flex items-center gap-1.5"><i class="fa-solid fa-file-invoice text-indigo-500"></i> Jotform</span>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: CASE STUDIES MAIN -->
+        <section id="section-casestudies" class="page-section py-16 bg-slate-50 hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Page Layout Toggle View (Main list vs Single Case Study Detail) -->
+                <div id="casestudies-list-view" class="space-y-12">
+                    <!-- Section Header -->
+                    <div class="text-center max-w-3xl mx-auto">
+                        <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Selected Implementation Work</h2>
+                        <p class="mt-4 text-lg text-slate-500">Examples of funnel, website, operations, and documentation work. Where metrics are shown, they reflect the project outcomes presented in the portfolio.</p>
+                        
+                        <!-- Categories Filter Tabs -->
+                        <div class="mt-8 flex justify-center gap-2 flex-wrap">
+                            <button onclick=\"filterCaseStudies('all', this)\" class="cs-filter-btn px-4 py-2 rounded-full text-sm font-medium bg-brand-600 text-white shadow-sm transition-all">All Projects</button>
+                            <button onclick=\"filterCaseStudies('systems', this)\" class="cs-filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-slate-600 hover:bg-slate-100 transition-all border border-slate-200">Operations & Implementation</button>
+                            <button onclick=\"filterCaseStudies('funnels', this)\" class="cs-filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-slate-600 hover:bg-slate-100 transition-all border border-slate-200">Funnels & Web</button>
+                            <button onclick=\"filterCaseStudies('documentation', this)\" class="cs-filter-btn px-4 py-2 rounded-full text-sm font-medium bg-white text-slate-600 hover:bg-slate-100 transition-all border border-slate-200">SOPs & Documentation</button>
+                        </div>
+                    </div>
+
+                    <!-- Case Study Cards Grid -->
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        
+                        <!-- Case Study Card 1 (Systems Category) -->
+                        <div class="cs-card bg-white rounded-2xl border border-slate-200/60 shadow-sm overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="systems">
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <span class="px-2.5 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold">Systems</span>
+                                        <span class="text-xs text-slate-400">April 2023 - Present</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-2">Digital Platform Operations SOP Design</h3>
+                                    <p class="text-slate-500 text-sm line-clamp-3">
+                                        A complete project restructuring that reduced overall project delivery cycles by 20% through standardized libraries and visual mapping.
+                                    </p>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-brand-600">Metric: -20% Cycle Time</span>
+                                    <button onclick="loadCaseStudy(1)" class="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-brand-600 gap-1">
+                                        Read Case Study <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Case Study Card 2 (Funnels Category) -->
+                        <div class="cs-card bg-white rounded-2xl border border-slate-200/60 shadow-sm overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="funnels">
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <span class="px-2.5 py-1 rounded-full bg-indigo-50 text-indigo-600 text-xs font-semibold">Funnels</span>
+                                        <span class="text-xs text-slate-400">June 2023</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-2">High-Traffic Funnel Infrastructure</h3>
+                                    <p class="text-slate-500 text-sm line-clamp-3">
+                                        Building and testing the technical funnel infrastructure so a major launch could run with confidence.
+                                    </p>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-indigo-600">Metric: 100% Tech Uptime</span>
+                                    <button onclick="loadCaseStudy(2)" class="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-brand-600 gap-1">
+                                        Read Case Study <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Case Study Card 3 (Documentation Category) -->
+                        <div class="cs-card bg-white rounded-2xl border border-slate-200/60 shadow-sm overflow-hidden hover:-translate-y-1 transition-all duration-300 flex flex-col h-full" data-category="documentation">
+                            <div class="p-6 flex-grow flex flex-col justify-between">
+                                <div>
+                                    <div class="flex items-center justify-between mb-4">
+                                        <span class="px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-600 text-xs font-semibold">SOPs</span>
+                                        <span class="text-xs text-slate-400">Oct 2023</span>
+                                    </div>
+                                    <h3 class="text-xl font-bold text-slate-900 mb-2">Asynchronous Operational Protocol Rollout</h3>
+                                    <p class="text-slate-500 text-sm line-clamp-3">
+                                        Formulated high-clarity asynchronous communication protocols that completely eliminated repetitive status meetings for remote teams.
+                                    </p>
+                                </div>
+                                <div class="mt-6 pt-4 border-t border-slate-100 flex items-center justify-between">
+                                    <span class="text-sm font-bold text-emerald-600">Metric: Zero Status Meetings</span>
+                                    <button onclick="loadCaseStudy(3)" class="inline-flex items-center text-xs font-semibold text-slate-900 hover:text-brand-600 gap-1">
+                                        Read Case Study <i class="fa-solid fa-arrow-right text-xs"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- SINGLE CASE STUDY VIEW (HIDDEN BY DEFAULT) -->
+                <div id="casestudies-detail-view" class="hidden space-y-8 max-w-4xl mx-auto">
+                    <!-- Back Button -->
+                    <button onclick="backToCaseStudyList()" class="inline-flex items-center gap-2 text-sm font-medium text-slate-600 hover:text-brand-600 transition-colors bg-white px-4 py-2 rounded-full border border-slate-200 shadow-sm">
+                        <i class="fa-solid fa-arrow-left"></i> Back to Case Studies
+                    </button>
+
+                    <!-- Case Study Layout Block -->
+                    <article class="bg-white rounded-3xl border border-slate-200 shadow-sm overflow-hidden">
+                        
+                        <!-- Top Banner with Category -->
+                        <div class="px-8 pt-8 pb-4 border-b border-slate-100">
+                            <span id="cs-detail-category" class="px-3 py-1 rounded-full bg-brand-50 text-brand-600 text-xs font-semibold uppercase tracking-wider">Systems</span>
+                            <h1 id="cs-detail-title" class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-4 leading-tight">Digital Platform Operations SOP Design</h1>
+                            <p id="cs-detail-subtitle" class="text-lg text-slate-500 mt-2">How we designed standard structures that reduced development cycles by 20%.</p>
+                        </div>
+
+                        <!-- Project Metadata Grid -->
+                        <div class="grid grid-cols-2 sm:grid-cols-4 gap-6 px-8 py-6 bg-slate-50/50 border-b border-slate-100">
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-semibold">Client Industry</span>
+                                <p id="cs-meta-industry" class="text-sm font-medium text-slate-800 mt-1">E-Commerce Ecosystem</p>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-semibold">My Role</span>
+                                <p id="cs-meta-role" class="text-sm font-medium text-slate-800 mt-1">Operations Consultant</p>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-semibold">Key Tech</span>
+                                <p id="cs-meta-tech" class="text-sm font-medium text-slate-800 mt-1">Notion, ClickUp, Loom</p>
+                            </div>
+                            <div>
+                                <span class="text-xs uppercase text-slate-400 font-semibold">Results</span>
+                                <p id="cs-meta-result" class="text-sm font-bold text-brand-600 mt-1">-20% Cycle Time</p>
+                            </div>
+                        </div>
+
+                        <!-- CASE STUDY CONTENT - EDITABLE BLOCKS -->
+                        <div class="p-8 sm:p-10 space-y-10">
+                            
+                            <!-- Section: Overview & Context -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> 
+                                    1. Project Overview & Context
+                                </h3>
+                                <div id="cs-content-overview" class="text-slate-600 leading-relaxed space-y-4">
+                                    <p><em>[This is your template. You will be able to write your exact project backstory here. Here is some ready-to-go filler to get you started!]</em></p>
+                                    <p>The client was managing a complex digital infrastructure with over 20 concurrent product delivery cycles. Because workflows were stored inside individual employee heads, communication bottlenecks frequently delayed delivery, forcing the management to spend excessive hours in stand-up sync meetings.</p>
+                                </div>
+                            </div>
+
+                            <!-- Section: The Problem -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> 
+                                    2. The Bottlenecks & Problem
+                                </h3>
+                                <div id="cs-content-problem" class="text-slate-600 leading-relaxed space-y-4">
+                                    <p>Without structured handoffs, files were getting lost inside massive, messy shared folders. Team members spent on average 4.5 hours a week seeking basic instruction on repetitive tasks, and developers had zero visibility on administrative blockers.</p>
+                                </div>
+                            </div>
+
+                            <!-- Section: The Strategy -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> 
+                                    3. The Tactical Strategy
+                                </h3>
+                                <div id="cs-content-strategy" class="text-slate-600 leading-relaxed space-y-4">
+                                    <p>Instead of introducing completely new, confusing workspace programs, I conducted systematic micro-audits to consolidate documentation inside their current system. We laid out three core structural actions:</p>
+                                    <ul class="list-disc list-inside space-y-2 pl-4 text-slate-600">
+                                        <li>Built unified knowledge bases with visual, tag-filtered directory layouts.</li>
+                                        <li>Designed exact workflow blueprints outlining task states.</li>
+                                        <li>Created clear handoff standards to remove status checkpoints.</li>
+                                    </ul>
+                                </div>
+                            </div>
+
+                            <!-- Section: The Implementation -->
+                            <div class="space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> 
+                                    4. Implementation & Execution
+                                </h3>
+                                <div id="cs-content-execution" class="text-slate-600 leading-relaxed space-y-4">
+                                    <p>I mapped and consolidated over 30 fragmented team files into a pristine SOP Library inside Notion. Each blueprint was paired with an off-the-cuff, structured Loom video showing step-by-step verification steps. This enabled a self-sufficient workspace where onboarding could happen 100% asynchronously.</p>
+                                </div>
+                            </div>
+
+                            <!-- Section: Results -->
+                            <div class="p-6 bg-brand-50/50 rounded-2xl border border-brand-100 space-y-4">
+                                <h3 class="text-xl font-bold text-slate-900 flex items-center gap-2">
+                                    <span class="w-1.5 h-6 bg-brand-500 rounded-full"></span> 
+                                    5. Quantified Achievements
+                                </h3>
+                                <div id="cs-content-results" class="text-slate-600 leading-relaxed space-y-4">
+                                    <p>Within just 60 days of rolling out the standard operational blueprints:</p>
+                                    <div class="grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4">
+                                        <div class="bg-white p-4 rounded-xl border border-brand-100 text-center">
+                                            <span class="block text-2xl font-extrabold text-brand-600">-20%</span>
+                                            <span class="text-xs text-slate-500">Project Delivery Cycles</span>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-brand-100 text-center">
+                                            <span class="block text-2xl font-extrabold text-brand-600">Zero</span>
+                                            <span class="text-xs text-slate-500">Repetitive Status Meetings</span>
+                                        </div>
+                                        <div class="bg-white p-4 rounded-xl border border-brand-100 text-center">
+                                            <span class="block text-2xl font-extrabold text-brand-600">100%</span>
+                                            <span class="text-xs text-slate-500">Asynchronous Workspace Adoption</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </article>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- SECTION: CONTACT -->
+        <section id="section-contact" class="page-section py-16 bg-white hidden">
+            <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+                
+                <!-- Section Header -->
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-3xl font-extrabold text-slate-900 sm:text-4xl">Let's Build Something That Works</h2>
+                    <p class="mt-4 text-lg text-slate-500">Have something you need built, updated, migrated, edited, or managed? Tell me what you're working on, what you already have, and what you'd like help with.</p>
+                </div>
+
+                <div class="max-w-xl mx-auto bg-slate-50 p-8 rounded-3xl border border-slate-200">
+                    <form id="contact-form" onsubmit="handleFormSubmit(event)" class="space-y-6">
+                        
+                        <!-- Success Feedback Alert (Custom toast-like widget, NO alert()) -->
+                        <div id="contact-success" class="hidden p-4 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-800 text-sm">
+                            <div class="flex items-center gap-2">
+                                <i class="fa-solid fa-circle-check text-lg"></i>
+                                <span class="font-semibold">Thanks! Your project details are ready to be connected to your inbox.</span>
+                            </div>
+                            <p class="mt-1 ml-7 text-emerald-700">Once a live form endpoint is connected, this form can send your project inquiry directly to your professional inbox.</p>
+                        </div>
+
+                        <div>
+                            <label for="form-name" class="block text-sm font-medium text-slate-700 mb-1">Your Name</label>
+                            <input type="text" id="form-name" required class="block w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white transition-all">
+                        </div>
+
+                        <div>
+                            <label for="form-email" class="block text-sm font-medium text-slate-700 mb-1">Your Email</label>
+                            <input type="email" id="form-email" required class="block w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white transition-all">
+                        </div>
+
+                        <div>
+                            <label for="form-subject" class="block text-sm font-medium text-slate-700 mb-1">Project Need</label>
+                            <select id="form-subject" class="block w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white transition-all">
+                                <option>SOP Library & Operations Blueprinting</option>
+                                <option>Funnel Setup & Marketing Infrastructure</option>
+                                <option>System Automation (Zapier)</option>
+                                <option>General Freelance Support</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label for="form-message" class="block text-sm font-medium text-slate-700 mb-1">Tell me about your project</label>
+                            <textarea id="form-message" required rows="4" class="block w-full px-4 py-3 rounded-xl border border-slate-200 focus:outline-none focus:ring-2 focus:ring-brand-500 focus:border-brand-500 bg-white transition-all"></textarea>
+                        </div>
+
+                        <button type="submit" class="w-full inline-flex items-center justify-center px-6 py-3 border border-transparent text-base font-medium rounded-xl text-white bg-brand-600 hover:bg-brand-700 focus:outline-none shadow-md hover:shadow-lg transition-all duration-200">
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION: PRIVACY POLICY & NDA -->
+        <section id="section-privacy" class="page-section py-16 bg-white hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Legal</p>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Privacy Policy & Non-Disclosure Agreement (NDA)</h1>
+                    <p class="mt-4 text-sm text-slate-500"><strong>Effective Date:</strong> August 2026</p>
+                    <p class="text-sm text-slate-500"><strong>Service Provider:</strong> Joyce | Operations & Business Systems Specialist</p>
+                    <p class="text-sm text-slate-500"><strong>Contact:</strong> privacy@joyceops.com</p>
+                </div>
+                <div class="prose prose-slate max-w-none space-y-8 text-slate-600 leading-relaxed">
+                    <div><h2>1. Purpose & Core Commitment</h2><p>This Privacy Policy and Non-Disclosure Agreement ("Agreement") governs the handling of sensitive information, proprietary business data, system credentials, and intellectual property shared during any project discovery, audit, or active consulting engagement with <strong>Joyce</strong> ("Service Provider").</p><p>The Service Provider operates under a strict <strong>Zero-Data-Monetization Commitment</strong>: client information is never sold, leased, rented, shared, or utilized for any purpose other than fulfilling contracted operational services.</p></div>
+                    <div><h2>2. Non-Disclosure & Confidential Information</h2><h3>2.1 Definition of Confidential Information</h3><p>"Confidential Information" includes, but is not limited to:</p><ul><li>Internal Standard Operating Procedures (SOPs), workflows, and organizational charts.</li><li>Strategic business plans, product launch roadmaps, and marketing funnels.</li><li>Customer, lead, subscriber, and client list data.</li><li>Financial metrics, sales revenue figures, and conversion data.</li><li>API keys, database schemas, webhooks, and software integration configurations.</li><li>Administrative login credentials and access tokens.</li></ul><h3>2.2 Obligations of Confidentiality</h3><ol><li>Hold all Confidential Information in strict confidence using no less than reasonable commercial care.</li><li>Use Confidential Information solely to audit, build, automate, or document systems as explicitly directed by the Client.</li><li>Restrict access to any sub-contractors or technical assistants unless prior written consent is granted by the Client under equivalent NDA terms.</li></ol><h3>2.3 Exclusions</h3><p>Confidential Information does not include information that:</p><ul><li>Is or becomes publicly known through no breach of this Agreement by the Service Provider.</li><li>Was already lawfully known to the Service Provider prior to disclosure.</li><li>Is independently developed by the Service Provider without reference to or reliance on Client Confidential Information.</li><li>Is required to be disclosed by applicable legal authority or court order (with immediate written notification provided to the Client).</li></ul></div>
+                    <div><h2>3. Credential Hygiene & Security Protocols</h2><p>To safeguard client accounts and infrastructure during active workspace builds, the Service Provider adheres to the following security standards:</p><ul><li><strong>Encrypted Password Management:</strong> Credentials must be shared exclusively through encrypted password management tools (e.g., 1Password, Bitwarden, or LastPass). Plain-text passwords sent via unencrypted chat or email are strictly discouraged.</li><li><strong>Least-Privilege Access:</strong> The Client agrees to grant access using "Manager," "Editor," or "Collaborator" roles rather than full Master Owner permissions wherever technically feasible.</li><li><strong>Two-Factor Authentication (2FA):</strong> 2FA is maintained on all primary devices and software tools used by the Service Provider to execute project tasks.</li><li><strong>Access Revocation Protocol:</strong> Upon final milestone completion and sign-off, the Service Provider will notify the Client to systematically revoke temporary guest access, API keys, and collaborator logins.</li></ul></div>
+                    <div><h2>4. Intellectual Property Rights & Asset Transfer</h2><h3>4.1 Client Ownership Upon Full Payment</h3><p>Upon final payment of agreed project invoices, <strong>100% of all deliverables created specifically for the Client</strong>—including custom Notion workspace architectures, ClickUp/Asana templates, SOP documentation libraries, automation logic, and custom funnel builds—transfer fully and exclusively to the Client.</p><h3>4.2 Service Provider Pre-Existing Assets</h3><p>The Service Provider retains ownership of foundational frameworks, generic templates, internal code snippets, or non-proprietary system methodologies developed prior to or independently of the Client’s specific engagement.</p></div>
+                    <div><h2>5. Data Retention & Destruction</h2><ul><li><strong>Active Retention:</strong> Project files, communication transcripts, and system blueprints are retained for the duration of the active contract plus the standard <strong>14-day post-launch support window</strong>.</li><li><strong>Data Sanitization:</strong> Upon written request from the Client following contract termination, the Service Provider will securely erase or return all retained client files and documentation within 14 business days.</li></ul></div>
+                    <div><h2>6. Governing Law & Acknowledgement</h2><p>This Agreement shall be interpreted and governed in accordance with standard international freelance best practices and business privacy standards. By entering into a project agreement or sharing system credentials, both parties acknowledge and accept these terms.</p></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- SECTION: TERMS OF ENGAGEMENT -->
+        <section id="section-terms" class="page-section py-16 bg-slate-50 hidden">
+            <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-10">
+                    <p class="text-xs font-semibold uppercase tracking-wider text-brand-600">Legal</p>
+                    <h1 class="text-3xl md:text-4xl font-extrabold text-slate-900 mt-2">Terms of Engagement & Operational Standards</h1>
+                    <p class="mt-4 text-sm text-slate-500"><strong>Effective Date:</strong> August 2026</p>
+                    <p class="text-sm text-slate-500"><strong>Service Provider:</strong> Joyce | Operations & Business Systems Specialist</p>
+                </div>
+                <div class="prose prose-slate max-w-none space-y-8 text-slate-600 leading-relaxed">
+                    <div><h2>1. Overview & Operating Philosophy</h2><p>These Terms of Engagement outline the standard working protocols, project management structures, and service expectations between <strong>Joyce</strong> ("Service Provider") and the Client.</p><p>The Service Provider operates on an <strong>Asynchronous-First Work Model</strong>. This approach maximizes deep focus time, accelerates system delivery, and eliminates meeting fatigue while maintaining total operational transparency.</p></div>
+                    <div><h2>2. Communication Protocols & Work Hours</h2><h3>2.1 Primary Communication Channels</h3><ul><li><strong>Project Management & Tracking:</strong> Notion, Asana, ClickUp, or Trello (Client-preferred workspace).</li><li><strong>Asynchronous Updates:</strong> Screen recordings with step-by-step visual breakdowns via Loom or Vidyard.</li><li><strong>Direct Messaging & Daily Syncs:</strong> Slack and/or Microsoft Teams (via admin invitation), or Email.</li></ul><h3>2.2 Meeting Policy</h3><ul><li>Routine project updates are delivered via written status logs and pre-recorded Loom walkthroughs.</li><li>Synchronous meetings (Zoom/Google Meet) are reserved for initial project discovery, strategic kickoff calls, and final system handoff training.</li></ul><h3>2.3 Timezone Alignment & Response Times</h3><ul><li><strong>Primary Timezone:</strong> Manila, Philippines (UTC+8).</li><li><strong>Working Overlap Windows:</strong> Structured overlap for US Morning (EST/EDT), UK Business (GMT/BST), and AU Evening (AEST/AEDT).</li><li><strong>Standard Response SLA:</strong> Messages received during business days will receive a response within <strong>12 to 24 hours</strong>.</li></ul></div>
+                    <div><h2>3. Project Scoping, Milestones & Change Management</h2><h3>3.1 Scope of Work (SOW)</h3><p>All project engagements require a written Scope of Work detailing:</p><ol><li>Specific operational deliverables (e.g., SOP Library, Funnel Setup, Zapier Automations).</li><li>Defined project phases, target completion dates, and verification criteria.</li><li>Total fixed project fee or hourly rate structure.</li></ol><h3>3.2 Change Orders</h3><p>Any requests for additional features, workflow alterations, tool migrations, or extra deliverables outside the agreed SOW will be evaluated as a <strong>Scope Change</strong>.</p><ul><li>Scope Changes will require a brief written addendum detailing the updated fee adjustment and timeline extension before work on the request begins.</li></ul></div>
+                    <div><h2>4. Client Responsibilities & Dependencies</h2><ul><li><strong>Timely Access:</strong> Provide necessary platform access, software licenses, API keys, and content assets within 3 business days of project kickoff.</li><li><strong>Feedback Timelines:</strong> Review milestones and provide consolidated feedback or approvals within <strong>3 business days</strong> of milestone submission. Delayed feedback will automatically extend target launch dates accordingly.</li><li><strong>Designated Point of Contact:</strong> Assign a single primary decision-maker to prevent conflicting feedback or instruction logic.</li></ul></div>
+                    <div><h2>5. 7-Day Post-Launch Support Guarantee</h2><p>Every completed systems setup, SOP library build, or automation rollout includes a complimentary <strong>7-Day Guarantee Window</strong> starting on the official handoff date:</p><ul><li><strong>What is Covered:</strong> Bug fixes for failed automations, broken Zapier webhooks, missing template permissions, or clarification questions on newly created SOP documents.</li><li><strong>What is Not Covered:</strong> Building brand-new workflows, adding new software stack integrations, or redesigning already approved system architectures.</li></ul></div>
+                    <div><h2>6. Payment Terms & Billing</h2><ul><li><strong>Fixed-Price Projects:</strong> Standard billing structure is <strong>70% Deposit upfront</strong> upon project agreement signing, and <strong>30% Final Payment</strong> upon milestone completion and handoff verification.</li><li><strong>Retainer & Part-Time Engagements:</strong> Invoiced in advance on a bi-weekly or monthly billing cycle.</li><li><strong>Late Payments:</strong> Payments delayed beyond 7 business days past the due date may result in a temporary pause on active work sprints and system testing until accounts are settled.</li></ul></div>
+                    <div><h2>7. Cancellation & Termination</h2><ul><li><strong>Termination for Convenience:</strong> Either party may terminate an active engagement by providing <strong>7 business days' written notice</strong>.</li><li><strong>Prorated Settlement:</strong> In the event of early termination, the Client will be billed for all completed milestones and active work hours completed up to the termination date. Unused deposit balances will be refunded promptly.</li><li><strong>Deliverable Release:</strong> Completed files and SOP documents created prior to termination will be transferred to the Client upon settlement of final prorated invoices.</li></ul></div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-slate-900 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-6">
+            <div class="flex justify-center items-center gap-2 text-white font-extrabold text-lg">
+                <span class="w-8 h-8 rounded-lg bg-brand-500 text-white flex items-center justify-center">J</span>
+                <span>JOYCE</span>
+            </div>
+            <p class="text-sm max-w-md mx-auto">Practical funnel, website, email, LMS, podcast, and operations support for businesses that need the work implemented without handing over the whole business.</p>
+            
+            <!-- Quick Link Icons -->
+            <div class="flex justify-center space-x-6 text-xl">
+                <a href="#" class="hover:text-brand-400 transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                <a href="#" class="hover:text-brand-400 transition-colors" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-xs text-slate-500 pt-6 border-t border-slate-800">
+                <button onclick="navigateTo('privacy')" class="hover:text-brand-400 transition-colors">Privacy Policy & NDA</button>
+                <button onclick="navigateTo('terms')" class="hover:text-brand-400 transition-colors">Terms of Engagement</button>
+            </div>
+            <div class="text-xs text-slate-600">
+                &copy; 2026 Joyce. All rights reserved. Built with responsive web standards and a client-first approach.
+            </div>
+        </div>
+    </footer>
+
+    <!-- JAVASCRIPT LOGIC -->
+    <script>
+        // DOM Elements
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const sections = document.querySelectorAll('.page-section');
+        const navButtons = document.querySelectorAll('.nav-btn');
+
+        // Mobile Menu Toggle
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function toggleMobileMenu() {
+            mobileMenu.classList.add('hidden');
+        }
+
+        // SPA Navigation Function
+        function navigateTo(sectionId) {
+            // Hide all sections
+            sections.forEach(sec => sec.classList.add('hidden'));
+            
+            // Show target section
+            const targetSec = document.getElementById(`section-${sectionId}`);
+            if (targetSec) {
+                targetSec.classList.remove('hidden');
+            }
+
+            // Update active state on Navigation elements
+            navButtons.forEach(btn => btn.classList.remove('active-tab'));
+            const activeNav = document.getElementById(`nav-${sectionId}`);
+            if (activeNav) {
+                activeNav.classList.add('active-tab');
+            }
+
+            // Scroll cleanly to the top
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Case Study Filtering Logic
+        function filterCaseStudies(category, clickedButton = null) {
+            const cards = document.querySelectorAll('.cs-card');
+            const filterBtns = document.querySelectorAll('.cs-filter-btn');
+
+            // Toggle filter button styling
+            filterBtns.forEach(btn => {
+                btn.classList.remove('bg-brand-600', 'text-white', 'shadow-sm');
+                btn.classList.add('bg-white', 'text-slate-600', 'border-slate-200');
+            });
+
+            const activeButton = clickedButton || document.querySelector(`.cs-filter-btn[onclick*="'${category}'"]`);
+            if (activeButton) {
+                activeButton.classList.remove('bg-white', 'text-slate-600', 'border-slate-200');
+                activeButton.classList.add('bg-brand-600', 'text-white', 'shadow-sm');
+            }
+
+            // Show/Hide Cards
+            cards.forEach(card => {
+                const cardCat = card.getAttribute('data-category');
+                if (category === 'all' || cardCat === category) {
+                    card.classList.remove('hidden');
+                } else {
+                    card.classList.add('hidden');
+                }
+            });
+        }
+
+        // Simulated Database for Case Studies
+        const caseStudyDatabase = {
+            1: {
+                category: "Systems",
+                title: "Digital Platform Operations SOP Design",
+                subtitle: "Reducing delivery times using modular directories and clear workflow blueprints.",
+                industry: "E-Commerce Startups",
+                role: "Operations Consultant",
+                tech: "Notion, ClickUp, Loom",
+                result: "-20% Cycle Time",
+                overview: "<p>The startup was expanding rapidly but relied heavily on in-person daily updates to handle simple handoffs. The lack of standard definitions made onboarding highly bottlenecked.</p>",
+                problem: "<p>Every developer and content manager had their own version of 'done'. Because of this, files were getting dropped, templates were overwritten, and projects regularly took 10-15 business days past the scheduled limit.</p>",
+                strategy: "<p>Instead of installing a massive platform over their legacy tools, I designed a micro-directory blueprint consisting of three functional stages: asset check-in, review criteria, and release handoff parameters.</p>",
+                execution: "<p>Mapped out the entire directory structures within clean, tag-filtered Notion Databases, allowing asynchronous access. To bypass standard email updates, I set up simple Zapier systems triggers to automatically alert reviewers when active tasks changed.</p>",
+                results: "<p>Within 60 days of the documentation systems launch:</p><div class='grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4'><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-brand-600'>-20%</span><span class='text-xs text-slate-500'>Project Delivery Cycles</span></div><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-brand-600'>Zero</span><span class='text-xs text-slate-500'>Status Meetings Required</span></div><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-brand-600'>100%</span><span class='text-xs text-slate-500'>Asynchronous Adoption</span></div></div>"
+            },
+            2: {
+                category: "Funnels",
+                title: "High-Traffic Funnel Infrastructure",
+                subtitle: "How I built and tested the technical funnel infrastructure for a major product launch.",
+                industry: "SaaS Platforms",
+                role: "Systems Specialist",
+                tech: "Kajabi, LeadPages, Zapier",
+                result: "100% Tech Uptime",
+                overview: "<p>The client was preparing for a major registration spike, expecting thousands of inbound sign-ups over a single 48-hour window. They needed absolute confidence that their backend funnel was bulletproof.</p>",
+                problem: "<p>A single broken integration hook between their sales pages and the CRM could cause lost leads, broken user account setups, and negative customer trust during prime hours.</p>",
+                strategy: "<p>I developed a 'Fail-Safe Checklist Protocol' and structured a multi-step automation funnel that checked email records on purchase before creating learning portals inside Kajabi.</p>",
+                execution: "<p>Successfully connected Kajabi with ActiveCampaign via custom Zapier Webhooks. Built specific system fallbacks—if an automated student account creation ever failed, a system audit immediately pinged the operations team synchronously via Slack.</p>",
+                results: "<p>The client launch had complete technical success:</p><div class='grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4'><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-indigo-600'>100%</span><span class='text-xs text-slate-500'>Lead Registration Uptime</span></div><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-indigo-600'>0</span><span class='text-xs text-slate-500'>Lost User Accounts</span></div><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-indigo-600'>4.9/5</span><span class='text-xs text-slate-500'>Onboarding Rating</span></div></div>"
+            },
+            3: {
+                category: "SOPs",
+                title: "Asynchronous Operational Protocol Rollout",
+                subtitle: "Getting rid of meeting fatigue using visual documentation standards.",
+                industry: "Remote Services",
+                role: "Systems Builder",
+                tech: "Notion, Otter.ai, Superthread",
+                result: "Zero Sync Fatigue",
+                overview: "<p>The team was working across four major continental time zones but scheduled 5 status meetings weekly just to tell each other what they had accomplished. Work was constantly stalled waiting for 'approval calls'.</p>",
+                problem: "<p>Meetings were taking up to 35% of each team member's active week, leaving very little focus time for system development and deep design.</p>",
+                strategy: "<p>I crafted a written-first documentation standard. If a task took longer than 5 steps, it was documented. If an approval was needed, it was handled asynchronously via a checklist.</p>",
+                execution: "<p>Configured visual progress pipelines on their team board. We created an operational standard: status meetings were deleted and replaced with short, 3-minute screen shares recorded via Loom alongside written transcripts.</p>",
+                results: "<p>Results within the first month of standard execution:</p><div class='grid grid-cols-1 sm:grid-cols-3 gap-4 mt-4'><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-emerald-600'>12 hrs</span><span class='text-xs text-slate-500'>Saved Per Week</span></div><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-emerald-600'>100%</span><span class='text-xs text-slate-500'>Action Transparency</span></div><div class='bg-white p-4 rounded-xl border border-brand-100 text-center'><span class='block text-2xl font-extrabold text-emerald-600'>Zero</span><span class='text-xs text-slate-500'>Status Sync Meetings</span></div></div>"
+            }
+        };
+
+        // Load Single Case Study
+        function loadCaseStudy(id) {
+            const data = caseStudyDatabase[id];
+            if (!data) return;
+
+            // Fill text values
+            document.getElementById('cs-detail-category').innerText = data.category;
+            document.getElementById('cs-detail-title').innerText = data.title;
+            document.getElementById('cs-detail-subtitle').innerText = data.subtitle;
+            document.getElementById('cs-meta-industry').innerText = data.industry;
+            document.getElementById('cs-meta-role').innerText = data.role;
+            document.getElementById('cs-meta-tech').innerText = data.tech;
+            document.getElementById('cs-meta-result').innerText = data.result;
+
+            // Render inner HTML content
+            document.getElementById('cs-content-overview').innerHTML = data.overview;
+            document.getElementById('cs-content-problem').innerHTML = data.problem;
+            document.getElementById('cs-content-strategy').innerHTML = data.strategy;
+            document.getElementById('cs-content-execution').innerHTML = data.execution;
+            document.getElementById('cs-content-results').innerHTML = data.results;
+
+            // Swap viewports
+            document.getElementById('casestudies-list-view').classList.add('hidden');
+            document.getElementById('casestudies-detail-view').classList.remove('hidden');
+        }
+
+        // Back to list View
+        function backToCaseStudyList() {
+            document.getElementById('casestudies-detail-view').classList.add('hidden');
+            document.getElementById('casestudies-list-view').classList.remove('hidden');
+        }
+
+        // Form Submission Simulation
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            
+            // Get values
+            const name = document.getElementById('form-name').value;
+            const email = document.getElementById('form-email').value;
+            const message = document.getElementById('form-message').value;
+
+            // Show inline success dialog
+            const successDiv = document.getElementById('contact-success');
+            successDiv.classList.remove('hidden');
+            
+            // Reset fields
+            document.getElementById('contact-form').reset();
+
+            // Auto Scroll smoothly to success alert
+            successDiv.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+    </script>
+</body>
+</html>
